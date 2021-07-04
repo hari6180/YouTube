@@ -15,6 +15,14 @@ img {
   width: 2em;
 }
 
+form {
+  width: 60%;
+}
+
+.search {
+  width: 80%;
+}
+
 .search_icon {
   width: 1em;
   color: white;
@@ -23,4 +31,5 @@ img {
 button {
   border: 0;
   background-color: grey;
+  padding: 0.2em 0.5em;
 }
