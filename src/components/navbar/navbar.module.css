@@ -6,6 +6,11 @@ nav {
   align-items: center;
 }
 
+.main {
+  display: flex;
+  align-items: center;
+}
+
 .title {
   color: white;
   padding: 0 0.8rem;
@@ -21,15 +26,18 @@ form {
 
 .search {
   width: 80%;
+  background-color: rgb(59, 59, 59);
 }
 
 .search_icon {
   width: 1em;
   color: white;
+  outline-color: none;
 }
 
 button {
   border: 0;
   background-color: grey;
-  padding: 0.2em 0.5em;
+  padding: 0.16em 0.5em;
+  outline: none;
 }

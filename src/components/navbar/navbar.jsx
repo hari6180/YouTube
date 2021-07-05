@@ -21,8 +21,10 @@ const Navbar = ({ onSearch }) => {
 
   return (
     <nav className={style.nav}>
-      <img src="/images/logo.png" alt="logo" className={style.img} />
-      <span className={style.title}>YouTube</span>
+      <div className={style.main} onClick={onClick}>
+        <img src="/images/logo.png" alt="logo" className={style.img} />
+        <span className={style.title}>YouTube</span>
+      </div>
       <input
         ref={inputRef}
         type="search"
