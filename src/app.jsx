@@ -3,50 +3,28 @@ import Navbar from "./components/navbar/navbar";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import VideoList from "./components/video_list/videoList";
+import VideoDetail from "./components/video_detail/videoDetail";
 
-function App() {
+function App({ youtube }) {
   const [videos, setVideos] = useState([]);
-  const [keyword, setSearch] = useState("");
 
-  const setKeyword = (name) => {
-    console.log(name);
-    setSearch(name);
+  const search = (query) => {
+    youtube
+      .search(query) //
+      .then((videos) => setVideos(videos));
   };
 
   useEffect(() => {
-    const requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-
-    fetch(
-      "https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyCju9IgAmpxI2w-5Ng8tfPuBtJuis-aYGw",
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) => setVideos(result.items))
-      .catch((error) => console.log("error", error));
+    youtube
+      .mostPopular() //
+      .then((videos) => setVideos(videos));
   }, []);
-
-  useEffect(() => {
-    const requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-
-    fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${keyword}&key=AIzaSyCju9IgAmpxI2w-5Ng8tfPuBtJuis-aYGw`,
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) => setVideos(result.items))
-      .catch((error) => console.log("error", error));
-  }, [keyword]);
 
   return (
     <>
       <div className="container">
-        <Navbar onSearch={setKeyword} />
+        <Navbar onSearch={search} />
+        <VideoDetail videos={videos} />
         <VideoList videos={videos} />
       </div>
     </>

@@ -2,8 +2,13 @@ import React from "react";
 import style from "./item.module.css";
 
 const VideoItem = (props) => {
+  const Select = () => {
+    const id = props.video.id;
+    id && props.onSelect(id);
+  };
+
   return (
-    <li>
+    <li onClick={Select}>
       <img
         src={props.video.snippet.thumbnails.default.url}
         alt="thumbnail"
