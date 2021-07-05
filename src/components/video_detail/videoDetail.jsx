@@ -1,23 +1,21 @@
 import React from "react";
 import style from "./videoDetail.module.css";
 
-const VideoDetail = ({ video }) => {
-  const base = "https://www.youtube.com/embed/";
-  const link = base + video.id;
-  //props.videos.find((video) => video.id == select);
-
-  return (
-    <article>
-      <iframe
-        className={style.video}
-        type="text/html"
-        src={link}
-        frameborder="0"
-        allowFullScreen="true"
-      ></iframe>
-      <h2>{video.title}</h2>
-    </article>
-  );
-};
+const VideoDetail = ({ video, video: { snippet } }) => (
+  <section className={style.detail}>
+    <iframe
+      className={style.video}
+      type="text/html"
+      width="100%"
+      height="500px"
+      src={`https://www.youtube.com/embed/${video.id}`}
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+    <h2>{snippet.title}</h2>
+    <h3>{snippet.channelTitle}</h3>
+    <pre className={style.description}>{snippet.description}</pre>
+  </section>
+);
 
 export default VideoDetail;
