@@ -9,11 +9,13 @@ nav {
 .main {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .title {
   color: white;
-  padding: 0 0.8rem;
+  font-weight: bold;
+  padding: 0 0.3rem;
 }
 
 img {

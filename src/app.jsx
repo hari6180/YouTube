@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import VideoList from "./components/video_list/videoList";
 import VideoDetail from "./components/video_detail/videoDetail";
+import { useCallback } from "react";
 
 function App({ youtube }) {
   const [videos, setVideos] = useState([]);
@@ -13,24 +14,27 @@ function App({ youtube }) {
     setSelectedVideo(video);
   };
 
-  const search = (query) => {
-    youtube
-      .search(query) //
-      .then((videos) => {
-        setVideos(videos);
-        setSelectedVideo(null);
-      });
-  };
+  const search = useCallback(
+    (query) => {
+      youtube
+        .search(query) //
+        .then((videos) => {
+          setVideos(videos);
+          setSelectedVideo(null);
+        });
+    },
+    [youtube]
+  );
 
   useEffect(() => {
     youtube
       .mostPopular() //
       .then((videos) => setVideos(videos));
-  }, []);
+  }, [youtube]);
 
   return (
     <>
-      <div className="container">
+      <div className={style.container}>
         <Navbar onSearch={search} />
         <section className={style.content}>
           {selectedVideo && (

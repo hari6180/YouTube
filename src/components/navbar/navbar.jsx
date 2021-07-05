@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
+import React, { memo, useRef } from "react";
 import style from "./navbar.module.css";
 
-const Navbar = ({ onSearch }) => {
+const Navbar = memo(({ onSearch }) => {
   const inputRef = useRef();
   const handleSearch = () => {
     const value = inputRef.current.value;
@@ -18,6 +18,7 @@ const Navbar = ({ onSearch }) => {
       handleSearch();
     }
   };
+  console.log("header!!");
 
   return (
     <nav className={style.nav}>
@@ -38,5 +39,5 @@ const Navbar = ({ onSearch }) => {
       </button>
     </nav>
   );
-};
+});
 export default Navbar;
