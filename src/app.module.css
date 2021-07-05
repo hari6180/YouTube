@@ -2,8 +2,10 @@
   max-width: 80rem;
 }
 
-.content {
-  display: flex;
+@media (min-width: 768px) {
+  .content {
+    display: flex;
+  }
 }
 
 .detail {
