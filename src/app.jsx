@@ -1,4 +1,4 @@
-import "./app.css";
+import style from "./app.module.css";
 import Navbar from "./components/navbar/navbar";
 import React, { useState } from "react";
 import { useEffect } from "react";
@@ -29,8 +29,20 @@ function App({ youtube }) {
     <>
       <div className="container">
         <Navbar onSearch={search} />
-        {selectedVideo && <VideoDetail video={selectedVideo} />}
-        <VideoList videos={videos} onVideoClick={selectVideo} />
+        <section className={style.content}>
+          {selectedVideo && (
+            <div className={style.detail}>
+              <VideoDetail video={selectedVideo} />
+            </div>
+          )}
+          <div className={style.list}>
+            <VideoList
+              videos={videos}
+              onVideoClick={selectVideo}
+              display={selectedVideo ? "list" : "grid"}
+            />
+          </div>
+        </section>
       </div>
     </>
   );
