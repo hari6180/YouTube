@@ -7,6 +7,11 @@ import VideoDetail from "./components/video_detail/videoDetail";
 
 function App({ youtube }) {
   const [videos, setVideos] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState("");
+
+  const selectVideo = (video) => {
+    setSelectedVideo(video);
+  };
 
   const search = (query) => {
     youtube
@@ -24,8 +29,8 @@ function App({ youtube }) {
     <>
       <div className="container">
         <Navbar onSearch={search} />
-        <VideoDetail videos={videos} />
-        <VideoList videos={videos} />
+        {selectedVideo && <VideoDetail video={selectedVideo} />}
+        <VideoList videos={videos} onVideoClick={selectVideo} />
       </div>
     </>
   );

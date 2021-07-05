@@ -1,15 +1,21 @@
 import React from "react";
+import style from "./videoDetail.module.css";
 
-const VideoDetail = (props) => {
+const VideoDetail = ({ video }) => {
   const base = "https://www.youtube.com/embed/";
-  const select = props.videos.id;
-  const link = base + select;
+  const link = base + video.id;
   //props.videos.find((video) => video.id == select);
 
   return (
     <article>
-      <iframe type="text/html" src={link} frameborder="0" allowFullScreen="true"></iframe>
-      <h2>{props.videos.title}</h2>
+      <iframe
+        className={style.video}
+        type="text/html"
+        src={link}
+        frameborder="0"
+        allowFullScreen="true"
+      ></iframe>
+      <h2>{video.title}</h2>
     </article>
   );
 };
