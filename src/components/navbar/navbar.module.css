@@ -28,7 +28,9 @@ form {
 
 .search {
   width: 80%;
+  height: 21px;
   background-color: rgb(59, 59, 59);
+  border: none;
 }
 
 .search_icon {
