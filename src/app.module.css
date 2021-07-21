@@ -2,10 +2,8 @@
   max-width: 80rem;
 }
 
-@media (min-width: 768px) {
-  .content {
-    display: flex;
-  }
+.content {
+  display: flex;
 }
 
 .detail {
@@ -14,4 +12,10 @@
 
 .list {
   flex: 1 1 30%;
+}
+
+@media screen and (max-width: 48rem) {
+  .content {
+    flex-direction: column;
+  }
 }
