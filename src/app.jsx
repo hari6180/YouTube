@@ -1,10 +1,8 @@
+import { React, useState, useEffect, useCallback } from "react";
 import style from "./app.module.css";
 import Navbar from "./components/navbar/navbar";
-import React, { useState } from "react";
-import { useEffect } from "react";
 import VideoList from "./components/video_list/videoList";
 import VideoDetail from "./components/video_detail/videoDetail";
-import { useCallback } from "react";
 
 function App({ youtube }) {
   const [videos, setVideos] = useState([]);
