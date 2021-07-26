@@ -5,7 +5,6 @@ const Navbar = memo(({ onSearch }) => {
   const inputRef = useRef();
   const handleSearch = () => {
     const value = inputRef.current.value;
-    console.log(value);
     onSearch(value);
   };
 
@@ -18,7 +17,6 @@ const Navbar = memo(({ onSearch }) => {
       handleSearch();
     }
   };
-  console.log("header!!");
 
   return (
     <nav className={style.nav}>
