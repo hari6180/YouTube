@@ -1,2 +1,4 @@
 # YouTube Clone Coding
-use YouTube public API 
+Developed with react and YouTube public API
+
+https://hari-youtube.netlify.app/
