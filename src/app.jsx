@@ -7,6 +7,7 @@ import VideoDetail from "./components/video_detail/videoDetail";
 function App({ youtube }) {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState("");
+  const [commentsThread, setCommentsThread] = useState([]);
 
   const selectVideo = (video) => {
     setSelectedVideo(video);
@@ -19,6 +20,17 @@ function App({ youtube }) {
         .then((videos) => {
           setVideos(videos);
           setSelectedVideo(null);
+        });
+    },
+    [youtube]
+  );
+
+  const comments = useCallback(
+    (videoId) => {
+      youtube
+        .comments(videoId) //
+        .then((comment) => {
+          setCommentsThread(comment);
         });
     },
     [youtube]
@@ -37,13 +49,14 @@ function App({ youtube }) {
         <section className={style.content}>
           {selectedVideo && (
             <div className={style.detail}>
-              <VideoDetail video={selectedVideo} />
+              <VideoDetail video={selectedVideo} commentsThread={commentsThread} />
             </div>
           )}
           <div className={style.list}>
             <VideoList
               videos={videos}
               onVideoClick={selectVideo}
+              ViewComments={comments}
               display={selectedVideo ? "list" : "grid"}
             />
           </div>
