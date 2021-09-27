@@ -24,17 +24,19 @@ const Navbar = memo(({ onSearch }) => {
         <img src="/images/logo.png" alt="logo" className={style.img} />
         <span className={style.title}>YouTube</span>
       </div>
-      <input
-        ref={inputRef}
-        type="search"
-        name="search"
-        id="search"
-        className={style.search}
-        onKeyPress={onKeyPress}
-      />
-      <button type="submit" className={style.submit} onClick={onClick}>
-        <img src="/images/search.png" alt="search" className={style.search_icon} />
-      </button>
+      <div className={style.wrap}>
+        <input
+          ref={inputRef}
+          type="search"
+          name="search"
+          id="search"
+          className={style.search}
+          onKeyPress={onKeyPress}
+        />
+        <button type="submit" className={style.submit} onClick={onClick}>
+          <img src="/images/search.png" alt="search" className={style.search_icon} />
+        </button>
+      </div>
     </nav>
   );
 });

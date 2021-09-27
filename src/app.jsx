@@ -44,8 +44,8 @@ function App({ youtube }) {
 
   return (
     <>
+      <Navbar onSearch={search} />
       <div className={style.container}>
-        <Navbar onSearch={search} />
         <section className={style.content}>
           {selectedVideo && (
             <div className={style.detail}>
