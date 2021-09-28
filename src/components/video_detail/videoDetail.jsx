@@ -15,8 +15,8 @@ const VideoDetail = ({ video, video: { snippet }, commentsThread }) => {
         frameBorder="0"
         allowFullScreen
       ></iframe>
-      <h2>{snippet.title}</h2>
-      <h3>{snippet.channelTitle}</h3>
+      <h2 className={style.title}>{snippet.title}</h2>
+      <h3 className={style.channel}>{snippet.channelTitle}</h3>
       <pre className={style.description}>{snippet.description}</pre>
       <Comments commentsThread={commentsThread} />
     </section>

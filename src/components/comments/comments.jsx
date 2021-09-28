@@ -4,7 +4,7 @@ import Comment from "../comment/comment";
 
 const Comments = ({ commentsThread }) => {
   return (
-    <ul>
+    <ul className={style.comments}>
       {commentsThread.map((comment) => (
         <Comment key={comment.id} comment={comment} />
       ))}

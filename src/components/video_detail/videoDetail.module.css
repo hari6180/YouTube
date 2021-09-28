@@ -2,6 +2,18 @@
   padding: 0.2em;
 }
 
+.title {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #333;
+}
+
+.channel {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
 .description {
   white-space: pre-wrap;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
 }

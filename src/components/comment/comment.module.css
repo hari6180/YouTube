@@ -1,0 +1,28 @@
+.comment {
+  display: flex;
+  justify-content: left;
+}
+
+.img_wrap {
+  padding: 1.5rem 1.5rem 1.5rem 0;
+}
+
+.profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.text_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.author {
+  margin: 0.2rem;
+}
+
+.text {
+  margin: 0.2rem;
+}
